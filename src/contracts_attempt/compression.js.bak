@@ -1,0 +1,156 @@
+
+/**
+ * @param {string} compressed
+ * @returns {number}
+ */
+export function is(compressed) {
+  for(let i=0; i < compressed.length; i++) {
+    if(typeof parseInt(compressed.charAt(i)) === "number")
+    {
+      return i;
+    }
+  }
+}
+
+/**
+ * @param {string} test
+ */
+export function isNumeric(test) {
+  if(typeof parseInt(test) === "number")
+  {
+    return true;
+  }
+  
+}
+
+export function decompressChunk(compressed) {
+  for(let i=0; i < decompress.length; i++) {
+    
+  }
+}
+
+export function getCompressedChunk(compressed, indicator, ) {
+  for(let i=0; i < decompress.length; i++) {
+    
+  }
+}
+
+
+
+/**
+ * @param {string} compressed
+ */
+export function decompress(compressed) {
+
+  let decompressed = ""
+
+  while (1) {
+    let indicator = parseInt(compressed.charAt(0))
+
+    
+
+    let compressed_chunk = compressed.substring(1, indicator + 1)
+    console.log(compressed_chunk)
+    
+    // if(!isNumeric(compressed.charAt(i))) {
+    //   continue;
+    // }
+    // // let indicator_position = getFirstCrompessionIndicator(compressed)
+    // let indicator = parseInt(compressed.charAt(i))
+    // let chunk_start = i + 1;
+    // let chunk_end = i + indicator;
+    // // console.log(end_position)
+    // compressed_chunk = compressed.slice(chunk_start, chunk_end + 1);
+
+    // // console.log(compressed_chunk)
+
+    // let output_chars = compressed.charAt(chunk_end + 1);
+    // let lookback = compressed.charAt(chunk_end + 2);
+
+    // // console.log(compressed_chunk.slice(-lookback).slice(0,4))
+
+    // let before_indicator = compressed.substring(0, i);
+    // console.log("start")
+    // console.log(before_indicator);
+
+   
+
+    // console.log("chunk")
+    // console.log(compressed_chunk)
+
+    // let uncompressed_chunk = compressed_chunk.slice(-lookback).substring(0,output_chars)
+    // console.log("next chunk")
+    // console.log(uncompressed_chunk)
+
+    // let after_indicators = compressed.slice(chunk_end+3)
+    // console.log("rest")
+    // console.log(after_indicators);
+    
+    // console.log(uncompressed_chunk)
+    // console.log(after_indicators)
+
+    // compressed = before_indicator + uncompressed_chunk + after_indicators;
+    break
+    // console.log(compressed); break
+    // console.log(before_indicator)
+    // console.log(output_chars);
+    // console.log(lookback);
+    
+    // console.log(end_position);
+
+    // let decompressed_chunk = compressed.slice(end_position, lookback * -1)
+
+    // console.log(decompressed_chunk)
+
+    // let(compressed.charAt(indicator_position))
+
+  }
+  return compressed
+}
+
+export function getLongestRepeat() {
+
+}
+
+
+
+// export async function main() {
+  const contract_host = "4sigma";
+  const contract_file = "contract-219094.cct";
+
+  let contract_data = "b6atP4tP4tP4HUMB0hQSqB0hQShQShQShQShQSSSSSSSSSS7KS7KS7KS77KS7KjR7E666oH7";
+  let compressed = "7abracad47"
+
+  decompress(compressed)
+  // console.log(decompress(compressed))
+
+  
+// }
+
+/******
+Lempel-Ziv (LZ) compression is a data compression technique which encodes data using references to earlier parts of the data.
+In this variant of LZ, data is encoded in two types of chunk. Each chunk begins with a length L, encoded as a single ASCII digit from 1 to 9, 
+followed by the chunk data, which is either:
+
+ 1. Exactly L characters, which are to be copied directly into the uncompressed data.
+ 2. A reference to an earlier part of the uncompressed data. To do this, the length is followed by a second ASCII digit X: 
+ each of the L output characters is a copy of the character X places before it in the uncompressed data.
+
+ For both chunk types, a length of 0 instead means the chunk ends immediately, and the next character is the start of a new chunk.
+ The two chunk types alternate, starting with type 1, and the final chunk may be of either type.
+
+ You are given the following input string:
+ &nbsp; &nbsp; b6atP4tP4tP4HUMB0hQSqB0hQShQShQShQShQSSSSSSSSSS7KS7KS7KS77KS7KjR7E666oH7
+ Encode it using Lempel-Ziv encoding with the minimum possible output length.
+
+ Examples (some have other possible encodings of minimal length):
+ abracadabra -> 7abracad47
+ &nbsp; &nbsp; mississippi &nbsp; &nbsp; -> &nbsp;4miss433ppi
+ &nbsp; &nbsp; aAAaAAaAaAA &nbsp; &nbsp; -> &nbsp;3aAA53035
+2718281828 -> 627182844
+ &nbsp; &nbsp; abcdefghijk &nbsp; &nbsp; -> &nbsp;9abcdefghi02jk
+ &nbsp; &nbsp; aaaaaaaaaaaa &nbsp; &nbsp;-> &nbsp;3aaa91
+aaaaaaaaaaaaa &nbsp; -> 1a91031
+aaaaaaaaaaaaaa &nbsp;-> 1a91041
+
+******/
